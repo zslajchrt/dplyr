@@ -154,3 +154,8 @@ list_cols_warning <- function(df, keep_cols) {
 n_distinct <- function(..., na.rm = FALSE) {
   n_distinct_multi(list(...), na.rm)
 }
+
+#' @export
+n_distinct_sort <- function(..., na.rm = FALSE) {
+  n_distinct_multi_sort(list(...), na.rm)
+}

@@ -4,6 +4,7 @@
 #include <tools/hash.h>
 
 #include <dplyr/visitor_set/VisitorEqualPredicate.h>
+#include <dplyr/visitor_set/VisitorLessPredicate.h>
 #include <dplyr/visitor_set/VisitorHash.h>
 #include <dplyr/Result/Processor.h>
 

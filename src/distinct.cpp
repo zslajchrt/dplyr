@@ -54,3 +54,34 @@ SEXP n_distinct_multi(List variables, bool na_rm = false) {
     return counter.process(everything);
   }
 }
+
+template <typename Visitor>
+int n_distinct_multi_sort_impl( const Visitor& visitors, int n){
+  VisitorLessPredicate<Visitor> compare(visitors) ;
+
+  // create an index vector from 0 to n-1
+  std::vector<int> index(n);
+  std::iota( index.begin(), index.end(), 0);
+
+  // sort that index using the less predicate from VisitorLessPredicate<Visitor>
+  std::sort( index.begin(), index.end(), compare );
+
+  // count the number of duplicates
+  int res = 0 ;
+  for(int i=1; i<n; i++){
+    if(!visitors.equal_or_both_na(index[i], index[i-1])) res++ ;
+  }
+
+  return res ;
+}
+
+// [[Rcpp::export]]
+int n_distinct_multi_sort(List variables, bool na_rm = false) {
+  int nv = variables.length();
+  if (nv == 0) {
+    stop("Need at least one column for `n_distinct()`");
+  }
+  int n = Rf_length(variables[0]);
+  MultipleVectorVisitors visitors(variables);
+  return n_distinct_multi_sort_impl<MultipleVectorVisitors>(visitors, n) ;
+}

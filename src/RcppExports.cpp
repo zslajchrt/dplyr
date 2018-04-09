@@ -181,6 +181,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// n_distinct_multi_sort
+int n_distinct_multi_sort(List variables, bool na_rm);
+RcppExport SEXP _dplyr_n_distinct_multi_sort(SEXP variablesSEXP, SEXP na_rmSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type variables(variablesSEXP);
+    Rcpp::traits::input_parameter< bool >::type na_rm(na_rmSEXP);
+    rcpp_result_gen = Rcpp::wrap(n_distinct_multi_sort(variables, na_rm));
+    return rcpp_result_gen;
+END_RCPP
+}
 // filter_impl
 SEXP filter_impl(DataFrame df, NamedQuosure quo);
 RcppExport SEXP _dplyr_filter_impl(SEXP dfSEXP, SEXP quoSEXP) {
@@ -705,6 +717,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_dplyr_combine_vars", (DL_FUNC) &_dplyr_combine_vars, 2},
     {"_dplyr_distinct_impl", (DL_FUNC) &_dplyr_distinct_impl, 3},
     {"_dplyr_n_distinct_multi", (DL_FUNC) &_dplyr_n_distinct_multi, 2},
+    {"_dplyr_n_distinct_multi_sort", (DL_FUNC) &_dplyr_n_distinct_multi_sort, 2},
     {"_dplyr_filter_impl", (DL_FUNC) &_dplyr_filter_impl, 2},
     {"_dplyr_grouped_df_impl", (DL_FUNC) &_dplyr_grouped_df_impl, 4},
     {"_dplyr_as_regular_df", (DL_FUNC) &_dplyr_as_regular_df, 1},
