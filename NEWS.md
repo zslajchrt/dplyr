@@ -92,12 +92,12 @@
 
 * `slice()` no longer enforce tibble classes when input is a simple `data.frame`, and ignores 0 (#3297, #3313).
 
-* Support for raw vector columns in `mutate`, `summarise`, `arrange`, `group_by`
+* Support for raw vector columns in `mutate()`, `summarise()`, `arrange()`, `group_by()`
   and joins (minimal `raw` x `raw` support initially) (#1803). 
 
-* `group_by_at` can group by an existing grouping variable (#3351). 
+* `group_by_at()` can group by an existing grouping variable (#3351). 
 
-* `arrange_at` can use grouping variables (#3332). 
+* `arrange_at()` can use grouping variables (#3332). 
 
 # dplyr 0.7.4
 
