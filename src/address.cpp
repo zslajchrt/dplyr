@@ -66,7 +66,7 @@ CharacterVector strings_addresses(CharacterVector s) {
 
 // [[Rcpp::export]]
 unsigned short gp(SEXP x) {
-  return reinterpret_cast<sxpinfo_struct*>(x)->gp;
+  return LEVELS(x);
 }
 
 
