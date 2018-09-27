@@ -57,7 +57,8 @@ LinkingTo:
     plogr (>= 0.1.10),
     Rcpp (>= 0.12.18)
 Remotes: 
-    r-lib/rlang
+    r-lib/rlang@13a9889,
+    RcppCore/Rcpp@bec856b
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: yes
